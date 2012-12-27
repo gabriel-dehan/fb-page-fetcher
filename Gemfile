@@ -31,6 +31,7 @@ group :test, :development do
   gem 'minitest-rails-shoulda'
   gem 'minitest-rails-capybara'
 
+  gem 'mocha', '>= 0.13.1', require: false
   gem 'capybara'
 
   # Test javascript headlessly
