@@ -17,7 +17,8 @@ require 'minitest-metadata'
 require 'turn/autorun'
 require 'capybara/poltergeist'
 
-Turn.config.format = :progress
+# Turn.config.format = :cue
+Turn.config.format = :pretty
 Capybara.javascript_driver = :poltergeist
 
 class MiniTest::Rails::ActiveSupport::TestCase
