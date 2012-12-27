@@ -1,14 +1,24 @@
+require 'simplecov'
+SimpleCov.start
+
 ENV["RAILS_ENV"] = "test"
 require File.expand_path('../../config/environment', __FILE__)
 
-require "minitest/autorun"
-require "minitest/rails"
+require 'minitest/spec'
+require 'minitest/matchers'
 
-# Uncomment if you want Capybara in accceptance/integration tests
-# require "minitest/rails/capybara"
+require 'minitest/rails'
+require 'minitest/rails/shoulda'
+require 'minitest/rails/capybara'
 
-# Uncomment if you want awesome colorful output
-# require "minitest/pride"
+require 'minitest/autorun'
+require 'minitest-metadata'
+
+require 'turn/autorun'
+require 'capybara/poltergeist'
+
+Turn.config.format = :progress
+Capybara.javascript_driver = :poltergeist
 
 class MiniTest::Rails::ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
@@ -17,9 +27,28 @@ class MiniTest::Rails::ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
 end
 
-# Do you want all existing Rails tests to use MiniTest::Rails?
-# Comment out the following and either:
-# A) Change the require on the existing tests to `require "minitest_helper"`
-# B) Require this file's code in test_helper.rb
+class MiniTest::Spec
+  class << self
+    alias :its :it
+  end
 
-# MiniTest::Rails.override_testunit!
+  # Will switch the driver from rack_test to poltergeist, for every `it` block
+  # with the option { js: true } set.
+  # Requires 'minitest-metadata'.
+  #
+  # Returns Nothing.
+  def switch_drivers
+    if metadata[:js]
+      Capybara.current_driver = Capybara.javascript_driver if Capybara.current_driver != Capybara.javascript_driver
+    else
+      Capybara.current_driver = Capybara.default_driver if Capybara.current_driver != Capybara.default_driver
+    end
+  end
+
+  # Switch the drivers before each test (might slow down the tests, it should be optimized)
+  def setup
+    switch_drivers
+  end
+end
+
+MiniTest::Rails.override_testunit!
