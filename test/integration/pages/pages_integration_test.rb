@@ -16,7 +16,7 @@ describe "Pages Integration Test" do
         it 'should create a new page if the form validates' do
           id = '218044128258628'
           within(form) do
-            fill_in 'fb_uid', with: id
+            fill_in 'page_fb_uid', with: id
             click_button "add_page"
           end
           Page.last.fb_uid.must_equal id
@@ -24,7 +24,7 @@ describe "Pages Integration Test" do
 
         it 'should display an error if the form invalidates' do
           within(form) do
-            fill_in 'fb_uid', with: ''
+            fill_in 'page_fb_uid', with: ''
             click_button "add_page"
           end
           page.must have_css('p.error')

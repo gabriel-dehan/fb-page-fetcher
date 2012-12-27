@@ -1,0 +1,11 @@
+<%= form_for @page, url: { action: :create } do |f| %>
+  <%= f.text_field :fb_uid %>
+  <%= f.submit 'Add', id: 'add_page' %>
+<% end %>
+
+<h1>Pages</h1>
+<ul>
+<% @pages.each do |p| %>
+  <%= render partial: 'page', locals: { page: p }  %>
+<% end %>
+</ul>
