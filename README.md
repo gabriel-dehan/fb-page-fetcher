@@ -6,7 +6,7 @@ Rails Exercise using the facebook open graph api.
 Goals : Get a facebook page and display it's feed.
 
 Technical goals :
-* 100% code coverage (simplecov)
+* 100% code coverage (simplecov) (apart from mocked objects and APIs)
 * Try using minitest instead of rspec
 * Use backbone js to handle the client side model loading/rendering
 
