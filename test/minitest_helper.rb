@@ -14,6 +14,8 @@ require 'minitest/rails/capybara'
 require 'minitest/autorun'
 require 'minitest-metadata'
 
+require 'mocha/setup'
+
 require 'turn/autorun'
 require 'capybara/poltergeist'
 
@@ -49,6 +51,7 @@ class MiniTest::Spec
   # Switch the drivers before each test (might slow down the tests, it should be optimized)
   def setup
     switch_drivers
+    Facebook.stubs(:connect).returns('poney')
   end
 end
 
