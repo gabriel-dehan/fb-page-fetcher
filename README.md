@@ -17,3 +17,5 @@ Run models tests : `rake minitest:models`
 
 Run integration tests : `rake minitest:integration`
 
+Run facebook module tests : `Run with : ruby -Itest test/models/facebook_test.rb` (Better off testing it without rake, it is much much faster)
+
