@@ -8,7 +8,9 @@ class PagesController < ApplicationController
     page = Page.new(fb_uid: params[:page][:fb_uid])
     page = Facebook::Page.build(page)
 
-    unless page.save
+    if page.valid?
+      page.save
+    else
       flash[:error] = 'The page could not be saved'
     end
     redirect_to root_path
