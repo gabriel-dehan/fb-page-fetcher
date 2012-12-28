@@ -1,5 +1,5 @@
 class Facebook::Page < Facebook::Model
-  # Public: Retrives a facebook page and fill an object with informations.
+  # Public: Retrieves a facebook page and fill an object with informations.
   #
   # page - An Object with a fb_uid readable attribute, which will
   #        be used to retrieve the facebook page from which to build the object.
