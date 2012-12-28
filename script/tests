@@ -1,1 +1,1 @@
-rake minitest:controllers && rake minitest:models && rake minitest:integration
+rake minitest:helpers && rake minitest:models && rake minitest:integration
