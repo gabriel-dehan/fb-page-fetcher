@@ -27,7 +27,7 @@ describe "Pages Integration Test" do
             fill_in 'page_fb_uid', with: ''
             click_button "add_page"
           end
-          page.must have_css('p.error')
+          page.must have_css('div.alert-error')
         end # should display error
 
       end # New page creation
