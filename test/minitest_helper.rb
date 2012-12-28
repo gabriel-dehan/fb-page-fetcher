@@ -1,5 +1,5 @@
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start 'rails'
 
 ENV["RAILS_ENV"] = "test"
 require File.expand_path('../../config/environment', __FILE__)
@@ -51,7 +51,6 @@ class MiniTest::Spec
   # Switch the drivers before each test (might slow down the tests, it should be optimized)
   def setup
     switch_drivers
-    Facebook.stubs(:connect).returns('poney')
   end
 end
 
