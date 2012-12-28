@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def create
-    page = Page.new(fb_uid: params[:page][:fb_uild])
+    page = Page.new(fb_uid: params[:page][:fb_uid])
     page = Facebook::Page.build(page)
 
     unless page.save
