@@ -43,5 +43,24 @@ describe "Pages Integration Test" do
   end # index
 
   describe 'show' do
+    before do
+      @page = Page.first
+      visit page_path(id: @page.id)
+    end
+    it 'should display the title of the page' do
+      page.must have_content(@page.name)
+    end
+    it 'should be the feed of a page' do
+      page.must have_css('h1', text: 'Feed')
+    end
+
+    context 'feed' do
+      it 'it should display a list of arbitrary messages' do
+        page.must have_css('li')
+      end
+      it 'each message should have a picture' do
+        page.must have_css('li img')
+      end
+    end
   end # show
 end
