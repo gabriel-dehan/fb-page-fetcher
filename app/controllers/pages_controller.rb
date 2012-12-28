@@ -15,4 +15,11 @@ class PagesController < ApplicationController
     end
     redirect_to root_path
   end
+
+  def show
+    page  = Page.find(params[:id])
+    @title = page.name
+
+    @feed = Facebook::Feed.build(page)
+  end
 end
