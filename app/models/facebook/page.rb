@@ -15,6 +15,7 @@ class Facebook::Page < Facebook::Model
     # If we can't get the facebook page, we just return the original object, unfilled
     begin
       fb_page = Facebook::connect.get_object(page.fb_uid)
+      fb_page['picture'] = Facebook::connect.get_picture(page.fb_uid)
     rescue
       return page
     end
