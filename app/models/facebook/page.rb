@@ -1,8 +1,11 @@
+require_relative 'facebook'
+
 module Facebook
   class Page < Facebook::Model
     def self.build page
       # If we can't get the facebook page, we just return the original object, unfilled
       begin
+        ap page.fb_uid
         fb_page = Facebook::connect.get_object(page.fb_uid)
       rescue
         return page
