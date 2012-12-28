@@ -18,7 +18,7 @@ module Facebook
 
         app_id     = '328272323953251'
         app_secret = '5c6f7a79e46beb102978501b054f5ee6'
-        token      = 'AAAEqj9tCQmMBAA9zA6ys83Uen3ZBydMov0rAZBtBsSGaRd4vMYEex8sBbeeVtlYT59XyqEAz89C4OCh6RGWDaRKz2G266XsygkVtNeBQZDZD'
+        token      = 'AAAEqj9tCQmMBANzk8PZCZAOaKzzZBO0uwFgCJY8F1HU2Vqsjmu4fAslrlEluEJaZCKaaaYBvHvezPtJz2vXdU9YTaVRWSZA8dFZBVaQtHU3AZDZD'
         oauth = Koala::Facebook::OAuth.new(app_id, app_secret)
         @@token = oauth.exchange_access_token(token)
       end
