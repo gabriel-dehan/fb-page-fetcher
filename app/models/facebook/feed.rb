@@ -3,7 +3,7 @@ class Facebook::Feed < Facebook::Model
   belongs_to :page
 
   def self.build page
-    comments = Facebook::connect.get_connections(page.fb_uid, 'feed', limit: 5)
+    comments = Facebook::connect.get_connections(page.fb_uid, 'feed', limit: 10)
     self.new(comments: comments, page: page)
   end
 
