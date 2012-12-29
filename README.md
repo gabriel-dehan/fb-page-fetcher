@@ -10,7 +10,7 @@ Technical goals :
 * 100% code coverage (simplecov) (apart from mocked objects and APIs)
 * Try using minitest instead of rspec
 * Use backbone js to handle the client side model loading/rendering
-* Create a facebook model class that emulate activerecord::relations behaviors with facebook data, on the fly
+* Create a facebook model class that emulates activerecord::relations behavior, but with facebook data, on the fly
 
 Run the tests : `rake minitest`
 
