@@ -1,0 +1,18 @@
+{{#each pages}}
+  <li>
+    <div class="page">
+      <img alt="{{name}}" src="{{picture}}" />
+      <a href="/articles/{{id}}">{{name}}</a>
+    </div>
+    <div class="data">
+      <span class="category">{{category}}</span>
+      <span class="likes">
+      {{if likes}}
+        {{likes}}
+      {{else}}
+         0
+      {{/if}}
+      </span>
+    </div>
+  </li>
+{{/each}}
