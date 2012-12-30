@@ -4,7 +4,7 @@ window.PageFetcher = {
   Views: {},
   Routers: {},
   initialize: function() {
-      new PageFetcher.Routers.Articles
+      new PageFetcher.Routers.Pages
       Backbone.history.start({pushState:true})
   }
 };
