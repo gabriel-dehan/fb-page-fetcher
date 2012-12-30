@@ -9,6 +9,12 @@ GIT
       http_parser.rb (~> 0.5.3)
       multi_json (~> 1.0)
 
+GIT
+  remote: https://github.com/svenfuchs/handlebars-rails.git
+  revision: 7f8a0eafe185cf934d221703f815f35972b2ec75
+  specs:
+    handlebars-rails (0.9.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -201,6 +207,7 @@ DEPENDENCIES
   backbone-on-rails
   better_errors
   capybara
+  handlebars-rails!
   jquery-rails
   koala
   minitest

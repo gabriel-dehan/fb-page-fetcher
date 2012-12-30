@@ -54,6 +54,8 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  gem 'handlebars-rails', git: 'https://github.com/svenfuchs/handlebars-rails.git'
+
   gem 'sass-rails', '~> 3.2.3'
   gem 'uglifier',   '>= 1.0.3'
 end
