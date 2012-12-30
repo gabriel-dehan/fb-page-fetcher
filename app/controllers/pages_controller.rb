@@ -2,16 +2,28 @@ class PagesController < ApplicationController
   def index
     @pages = Page.all
     @page  = Page.new
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @pages }
+    end
   end
 
   def create
-    page = Page.new(fb_uid: params[:page][:fb_uid])
-    page = Facebook::Page.build(page)
+    status = 200
+
+    _page  = Page.new(fb_uid: params[:page][:fb_uid])
+    page   = Facebook::Page.build(_page)
 
     unless page.valid? and page.save
+      status = 422
       flash[:error] = 'The page could not be saved'
     end
-    redirect_to root_path
+
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.json { render json: { error: flash[:error] }, status: status }
+    end
   end
 
   def show
