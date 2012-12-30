@@ -1,1 +1,20 @@
-<h1><%= @title %>'s Feed%></h1>
+<h1><%= @title %>'s Feed</h1>
+
+<ul>
+<% @feed.comments.each do |comment| %>
+  <li id="<%= comment.fb_uid %>" class="comment">
+    <div class="author">
+      <%= image_tag comment.author.picture, alt: comment.author.name  %>
+      <strong><%= comment.author.name %></strong>
+    </div>
+    <p><%= display_content_for comment %></p>
+    <div class="data">
+      <span class="time"><%= get_time comment.updated_at %></span>
+      <br />
+      <span class="likes"><%= maybe_nil comment.likes %></span>
+      <br />
+      <span class="shared"><%= maybe_nil comment.shared %></span>
+    </div>
+  </li>
+<% end %>
+</ul>

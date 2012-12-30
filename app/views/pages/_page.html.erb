@@ -1,3 +1,10 @@
 <li>
-  <%= link_to page.name, page_path(id: page.id) %>
+  <div class="page">
+    <%= image_tag page.picture %>
+    <%= link_to page.name, page_path(id: page.id) %>
+  </div>
+  <div class="data">
+    <%= page.category %>
+    <%= maybe_nil page.likes %>
+  </div>
 </li>
