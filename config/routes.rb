@@ -3,6 +3,11 @@ PageFetcher::Application.routes.draw do
 
   resources :pages, only: [:show, :create]
 
+  scope '/api' do
+    get '/pages'  => 'pages#index', as: :api_list
+    post '/pages' => 'pages#create', as: :api_create
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
