@@ -49,7 +49,7 @@ describe "Pages Integration Test" do
     end
     it 'should display the title of the page' do
       page.must have_content(@page.name)
-    end
+   end
     it 'should be the feed of a page' do
       page.must have_css('h1', text: 'Feed')
     end
