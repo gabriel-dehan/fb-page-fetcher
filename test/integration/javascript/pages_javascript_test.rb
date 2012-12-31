@@ -7,6 +7,8 @@ describe 'Pages Javascript Integration Test' do
 
   context 'adding a new page' do
     before do
+      DatabaseCleaner.clean
+
       @id = '218044128258628'
     end
 
@@ -31,6 +33,7 @@ describe 'Pages Javascript Integration Test' do
         fill_in 'page_fb_uid', with: @id
       end
       click_button "add_page"
+      ap Page.last
       page.must have_css('li', Page.last.name)
     end
   end

@@ -16,12 +16,15 @@ require 'minitest-metadata'
 
 require 'mocha/setup'
 
+require 'database_cleaner'
+
 require 'turn/autorun'
 require 'capybara/poltergeist'
 
 # Turn.config.format = :cue
 Turn.config.format = :pretty
 Capybara.javascript_driver = :poltergeist
+DatabaseCleaner.strategy = :transaction
 
 class MiniTest::Rails::ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
