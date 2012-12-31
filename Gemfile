@@ -37,6 +37,8 @@ group :test, :development do
   gem 'mocha', '>= 0.13.1', require: false
   gem 'capybara'
 
+  gem 'database_cleaner'
+
   # Test javascript headlessly
   # Using a poltergeist fork as the current release dos not support capybara 2.0
   gem 'poltergeist', git: 'https://github.com/brutuscat/poltergeist'
