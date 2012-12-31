@@ -18,6 +18,9 @@ class Facebook::Page < Facebook::Model
       fb_page['picture'] = Facebook::connect.get_picture(page.fb_uid)
     rescue
       return page
+    else
+      # We ensure we are retrieving a page and not a profile
+      return page if fb_page['category'].nil? && fb_page['likes'].nil?
     end
 
     page.tap do |p|
