@@ -7,8 +7,8 @@ PageFetcher.Views.PagesIndex = Backbone.View.extend({
 
     initialize: function() {
         /* Error display */
-        var errorTag = $('.flash-messages .alert');
-        this.error = errorTag.length ? errorTag : $(this.el).prepend('<div class="alert alert-error"></div>');
+        var errorTag = $('.flash-messages .alert').hide();
+        this.error = errorTag.length ? errorTag : $('.flash-messages').prepend('<div class="alert alert-error" style="display: none"></div>');
         errorTag.html('');
 
         /* Collection events */
@@ -33,7 +33,7 @@ PageFetcher.Views.PagesIndex = Backbone.View.extend({
 
     errors: function(article, response) {
         e = $.parseJSON(response.responseText).error;
-        $('.flash-messages .alert').html(e);
+        $('.flash-messages .alert').fadeIn().html(e);
     },
 
     create: function(event) {
