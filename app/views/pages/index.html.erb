@@ -1,10 +1,13 @@
-<%= form_for @page, url: { action: :create } do |f| %>
-  <%= f.text_field :fb_uid %>
-  <%= f.submit 'Add', id: 'add_page' %>
-<% end %>
+<div id="content-header">
+  <h1>Page Fetcher</h1>
 
-<h1>Pages</h1>
-<ul>
+  <%= form_for @page, url: { action: :create }, html: { class: 'form-search' } do |f| %>
+    <%= f.text_field :fb_uid, class: "input-large search-query", placeholder: 'Firefox, 14696440021, ...' %>
+    <%= f.submit 'Add', id: 'add_page', class: 'btn btn-inverse' %>
+  <% end %>
+</div>
+
+<ul id="page-list">
 <% @pages.each do |p| %>
   <%= render partial: 'page', locals: { page: p }  %>
 <% end %>

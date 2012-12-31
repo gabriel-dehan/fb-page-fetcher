@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def index
-    @pages = Page.all
+    @pages = Page.all.reverse
     @page  = Page.new
 
     respond_to do |format|

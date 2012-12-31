@@ -1,10 +1,10 @@
 <li>
   <div class="page">
-    <%= image_tag page.picture %>
-    <%= link_to page.name, page_path(id: page.id) %>
+    <span class="picture"><%= facebook_picture page, type: :large %></span>
+    <h2><strong><%= link_to page.name, page_path(id: page.id) %></strong></h2>
   </div>
   <div class="data">
-    <span class="category"><%= page.category %><span>
-    <span class="likes"><%= maybe_nil page.likes %></span>
+    <h3 class="category"><%= page.category %></h3>
+    <h3 class="likes"><i class="icon"></i><em><%= maybe_nil page.likes %></em></h3>
   </div>
 </li>

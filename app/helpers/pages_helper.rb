@@ -1,6 +1,12 @@
 require 'time'
 
 module PagesHelper
+  def facebook_picture page, opts = { type: :small }
+    type    = opts[:type]
+    picture = type == :small ? page.picture : "https://graph.facebook.com/#{page.fb_uid}/picture?type=#{type}"
+    image_tag picture
+  end
+
   def get_time time_string
     time_ago_in_words(Time::parse(time_string))
   end
