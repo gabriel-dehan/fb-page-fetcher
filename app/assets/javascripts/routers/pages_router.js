@@ -1,7 +1,6 @@
 PageFetcher.Routers.Pages = Backbone.Router.extend({
     routes: {
-        '':          'index',
-//      'pages/:id': 'show'
+        '':          'index'
     },
 
     initialize: function() {

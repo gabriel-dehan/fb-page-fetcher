@@ -12,24 +12,34 @@ PageFetcher.Views.PagesIndex = Backbone.View.extend({
         errorTag.html('');
 
         /* Collection events */
-        this.collection.on('add', this.render, this);
+        this.collection.on('add', this.refresh, this);
+    },
+
+    refresh: function() {
+        var self = this;
+        this.collection.fetch({
+            success: function(collection) {
+                self.collection = collection;
+                self.render();
+            }
+        })
     },
 
     render: function() {
-        this.error.html('');
+        $('.flash-messages .alert').html('');
         $('ul').html(this.template({ pages: this.collection.toJSON() }));
         return this.el;
     },
 
     errors: function(article, response) {
         e = $.parseJSON(response.responseText).error;
-        this.error.html(e);
+        $('.flash-messages .alert').html(e);
     },
 
     create: function(event) {
         event.preventDefault();
         var attr = { fb_uid : $('#page_fb_uid').val()};
-
+        console.log('its here');
         this.collection.create(attr, {
             wait:  true,
             error: this.errors
