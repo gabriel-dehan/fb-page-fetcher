@@ -72,6 +72,7 @@ GEM
       execjs
     coffee-script-source (1.4.0)
     daemons (1.1.9)
+    database_cleaner (0.8.0)
     eco (1.0.0)
       coffee-script
       eco-source
@@ -207,6 +208,7 @@ DEPENDENCIES
   backbone-on-rails
   better_errors
   capybara
+  database_cleaner
   handlebars-rails!
   jquery-rails
   koala
