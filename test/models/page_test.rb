@@ -21,6 +21,12 @@ describe Page do
     # Passing a parameter to valid? or invalid? is useless in this case
     # But we do it for the sake of clarity
     describe 'fb_uid' do
+      it 'must be unique' do
+        copy = page.clone
+        copy.save
+
+        page.invalid?.must_equal true
+      end
       it 'must be present' do
         page.fb_uid = nil
         page.invalid?(:fb_uid).must_equal true
