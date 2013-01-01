@@ -29,19 +29,19 @@
   $magenta:   #FF0097;
   $teal:      #00ABA9;
 
-/* =HERO-UNIT */
 
+/* =HERO-UNIT */
 @mixin hero-unit {
-    padding: 60px;
-    margin-bottom: 30px;
-    font-size: 18px;
-    font-weight: 200;
-    line-height: 37.5px;
-    color: inherit;
-    background-color: #EEE;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
+  padding: 60px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 37.5px;
+  color: inherit;
+  background-color: #EEE;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
 }
 
 /* =TILES */
@@ -105,6 +105,15 @@
   h4 {
     font-size: ($coef / 2.1) * 42px;
   }
+}
+
+/* =MESSAGE-TILE */
+@mixin message-tile {
+  width: 95%;
+  margin-top: 15px;
+  padding: 10px;
+  float: left;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 /* =LAYOUT */
@@ -214,3 +223,58 @@ h1 {
 /* =SHOW */
 
   /* =List */
+  #feed {
+    margin-top: 15px;
+
+    .comment {
+      @include hero-unit;
+      list-style: none;
+      padding: 1em;
+      margin-bottom: 10px;
+      width: 33%;
+      float: left;
+      clear: both;
+
+      .author {
+        h2 {
+          margin-left: 15px;
+          font-size: 1.2em;
+          display: inline;
+          text-transform: capitalize;
+        }
+        img {
+          float: left;
+          -moz-box-shadow: 3px 3px 10px 0px #BBBBBB;
+          -webkit-box-shadow: 3px 3px 10px 0px #BBBBBB;
+          -o-box-shadow: 3px 3px 10px 0px #BBBBBB;
+          box-shadow: 3px 3px 10px 0px #BBBBBB;
+          filter:progid:DXImageTransform.Microsoft.Shadow(color=#BBBBBB, Direction=135, Strength=10);
+        }
+      }
+
+
+      .content {
+        @include message-tile;
+
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 0.7em;
+        font-family: Helvetica, Arial, Verdana, sans-serif;
+        font-weight: normal;
+        line-height: 1.3em;
+        margin-bottom: 0;
+        img {
+          float: left;
+          margin-right: 10px;
+        }
+      }
+      .data {
+        clear: both;
+        float: right;
+        font-size: 0.7em;
+        margin-top: 4px;
+        .time {
+          font-style: italic;
+        }
+      }
+    }
+  }
