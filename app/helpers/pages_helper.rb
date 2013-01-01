@@ -16,6 +16,7 @@ module PagesHelper
   end
 
   def display_content_for comment
+    ap comment
     if comment.picture != nil
       image   = link_to image_tag(comment.picture), comment.link
       message = comment.message

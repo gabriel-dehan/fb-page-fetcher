@@ -31,7 +31,7 @@ PageFetcher.Views.PagesIndex = Backbone.View.extend({
         return this.el;
     },
 
-    errors: function(article, response) {
+    errors: function(page, response) {
         e = $.parseJSON(response.responseText).error;
         $('.flash-messages .alert').fadeIn().html(e);
     },
