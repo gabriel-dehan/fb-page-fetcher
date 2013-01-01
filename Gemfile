@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Freeze ruby version
-ruby '1.9.3'
+# ruby '1.9.3'
 
 gem 'rails', '3.2.9'
 gem 'thin'
