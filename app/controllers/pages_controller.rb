@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  caches_action :show, expires_in: 15.minute
+
   def index
     @pages = Page.all.reverse
     @page  = Page.new
